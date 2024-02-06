@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ecommerce || Order Track</title>
+<!-- Stylesheets -->
+<link href="{% static 'static/css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'static/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'static/css/responsive.css' %}" rel="stylesheet">
+<link rel="shortcut icon" href="{% static 'static/images/favicon.png' %}" type="image/x-icon">
+<link rel="icon" href="{% static 'static/images/favicon.png' %}" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<!--[if lt IE 9]><script src="https://cdnstatic/js.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.static/js"></script><![endif]-->
+<!--[if lt IE 9]><script src="static/js/respond.static/js"></script><![endif]-->
+</head>
+
+
+<body class="hidden-bar-wrapper">
+    <section class="navigation">
+		<div class="nav-container">
+		  <div class="brand">
+			<a href="#!">Logo</a>
+		  </div>
+		  <nav>
+			<div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
+			<ul class="nav-list" >
+			  
+              {% if user.is_authenticated %}
+              <li>
+				<a href="#">Track</a>
+			  </li>
+        
+			  <li class="si-btn">
+          <a href="#" style="background-color: #007bff!important; margin-right: 20px; cursor: default;" class="btn btn-primary">USER: {{ user.username }}</a>
+          </li>
+			  <li class="si-btn">
+				<a href="{% url 'logout' %}" class="btn btn-primary">Sign Out</a>
+			  </li>
+              {% else %}
+              <li class="si-btn">
+				<a href="/" class="btn btn-primary">Home</a>
+			  </li>
+              {% endif %}
+			  
+			</ul>
+		  </nav>
+		</div>
+	  </section>
+<div class="page-wrapper">	
+	<!--Page Title-->
+    <section class="page-title" style="background-image:url(/static/static/images/12.jpg);">
+    	<div class="auto-container">
+        	<h2>Track & Trace</h2>
+        </div>
+    </section>
+    
+    <!--Breadcrumb-->
+    <div class="breadcrumb-outer">
+    	<div class="auto-container">
+        	<ul class="bread-crumb text-center">
+            	<li><a href="">Home</a> <span>/</span></li>
+                <li>Track & Trace</li>
+            </ul>
+        </div>
+    </div>
+    <!--End Page Title-->
+	
+	<!--Sidebar Page Container-->
+    	<div class="auto-container mt-5 mb-5">
+        	<div class="row clearfix">
+				
+				<!--Content Side-->
+                <div class="content-side col-lg-6 col-md-12 col-sm-12">
+                	<div class="track-section">
+						<!-- Sec Title Two -->
+						<div class="sec-title-two sec-title">
+							<h2>Track & <span>Trace Shipment</span></h2>
+						</div>
+						
+						
+						<!-- Tracking Info -->
+						<div class="tracking-info-detail">
+							<div id="track-status-1" class="tracking-box">
+								<div class="tracking-time-box">
+									<div class="tracking-time">{{ order.orderPlacedDate }}</div>
+									<span>{{ order.orderPlacedtime }}</span>
+								</div>
+								<div class="tracking-location">
+									<span class="dott"></span>
+									<strong>Order placed </strong>
+									through portal 
+								</div>
+							</div>
+							
+							<div id="track-status-2" class="tracking-box">
+								<div class="tracking-time-box">
+									<div class="tracking-time">{{ order.orderShipmentDate }}</div>
+									<span>{{ order.orderShipmentTime }}</span>
+								</div>
+								<div class="tracking-location style-two">
+									<span class="dott"></span>
+									<strong>In transit </strong>
+									5th Block
+								</div>
+							</div>
+							
+							
+							<div id="track-status-4" class="tracking-box">
+								<div class="tracking-time-box">
+									<div class="tracking-time">{{ order.outForDeliveryDate }}</div>
+									<span>{{ order.outForDeliveryTime }}</span>
+								</div>
+								<div class="tracking-location style-three">
+									<span class="dott"></span>
+									<strong>Out for Delivery</strong>
+									ready
+								</div>
+							</div>
+							
+							<div id="track-status-5" class="tracking-box">
+								<div class="tracking-time-box">
+									<div class="tracking-time">{{ order.deliveredDate }}</div>
+									<span>{{ order.deliveredtime }}</span>
+								</div>
+								<div class="tracking-location style-three">
+									<span class="dott"></span>
+									<strong>Delivered</strong>
+									Your order is Delivered
+								</div>
+							</div>
+							
+						</div>
+						
+						
+						
+					</div>
+				</div>
+				
+	</div>
+
+	
+<script>
+	st1 = '{{ st1 }}'
+	st3 = '{{ st3 }}'
+	st4 = '{{ st4 }}'
+	st5 = '{{ st5 }}'
+	place = document.getElementById('track-status-1')
+	shipped = document.getElementById('track-status-2')
+	outF = document.getElementById('track-status-4')
+	delivered = document.getElementById('track-status-5')
+	if(st1 == 'true'){
+		place.classList.add('active')
+	}
+	if(st3 == 'true'){
+		shipped.classList.add('active')
+	}
+	if(st4 == 'true'){
+		outF.classList.add('active')
+	}
+	if(st5 == 'true'){
+		delivered.classList.add('active')
+	}
+
+</script>
+	
+	<!--Main Footer-->
+   
+	
+</div>
+
+
+
+
+<script src="{% static 'static/js/jquery.js' %}"></script>
+<script src="{% static 'static/js/popper.min.js' %}"></script>
+<script src="{% static 'static/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'static/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'static/js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'static/js/appear.js' %}"></script>
+<script src="{% static 'static/js/owl.js' %}"></script>
+<script src="{% static 'static/js/wow.js' %}"></script>
+<script src="{% static 'static/js/jquery-ui.js' %}"></script>
+<script src="{% static 'static/js/script.js' %}"></script>
+<!--Google Map APi Key-->
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyCcavdONRtu_0BfV63xiQX1LiJpX1ZJ2N0"></script>
+<script src="{% static 'static/js/map-script.js' %}"></script>
+<!--End Google Map APi-->
+
+</body>
+</html>

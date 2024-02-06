@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Ecommerce || Product Details</title>
+{% endblock title %}
+{% block content %}
+
+    <main class="main-wrapper">
+        
+        <!-- Start Shop Area  -->
+        <div class="axil-single-product-area bg-color-white">
+            <div class="single-product-thumb axil-section-gap pb--20 pb_sm--0 bg-vista-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 mb--40">
+                            <div class="row">
+                                <div class="col-lg-10 order-lg-2">
+                                    <div class="single-product-thumbnail-wrap zoom-gallery">
+                                        <div class="product-large-thumbnail single-product-thumbnail axil-product">
+                                            <div class="thumbnail">
+                                                <a href="{{product.img.url}}" class="popup-zoom">
+                                                    <img src="{{product.img.url}}" alt="Product Images">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="label-block">
+                                            <div class="product-badget">20% OFF</div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb--40">
+                            <div class="single-product-content">
+                                <div class="inner">
+                                    <h2 class="product-title">{{product.title}}</h2>
+                                    <span class="price-amount">{{currency}} {{product.unit_price}}</span>
+                                    
+                                    <p class="description">{{product.description}}</p>
+
+                                    <div class="product-variations-wrapper">
+
+                                        <!-- Start Product Variation  -->
+                                        <div class="product-variation">
+                                            <h6 class="title">Colors:</h6>
+                                            <div class="color-variant-wrapper">
+                                                <ul class="color-variant mt--0">
+                                                    <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                                    </li>
+                                                    <li class="color-extra-02"><span><span class="color"></span></span>
+                                                    </li>
+                                                    <li class="color-extra-03"><span><span class="color"></span></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- End Product Variation  -->
+
+                                        <!-- Start Product Variation  -->
+                                        <div class="product-variation product-size-variation">
+                                            <h6 class="title">Size:</h6>
+                                            <ul class="range-variant">
+                                                <li>xs</li>
+                                                <li>s</li>
+                                                <li>m</li>
+                                                <li>l</li>
+                                                <li>xl</li>
+                                            </ul>
+                                        </div>
+                                        <!-- End Product Variation  -->
+
+                                    </div>
+
+                                    <!-- Start Product Action Wrapper  -->
+                                    <form action="{% url 'addToCart' %}" method="post">
+                                        {% csrf_token %}
+                                    <div class="product-action-wrapper d-flex-center">
+                                        <!-- Start Quentity Action  -->
+                                        
+                                        <div class="pro-qty mr--20"><input type="text" value="1" id="quantity"
+                                            name="quantity" class="product-count" ></div>
+                                        <!-- End Quentity Action  -->
+                                        <input type="hidden" name="productid" value="{{product.id}}">
+
+                                        <!-- Start Product Action  -->
+                                        <ul class="product-action d-flex-center mb--0">
+                                            <li class="add-to-cart"><button type="submit" class="axil-btn btn-bg-primary cartit">Add to Cart</button></li>
+                                        </ul>
+                                    
+                                        <!-- End Product Action  -->
+
+                                    </div>
+                                </form><!-- End Product Action Wrapper  -->
+
+                                    <!-- End .product-desc-wrapper -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End .single-product-thumb -->
+
+        </div>
+        <!-- End Shop Area  -->
+    </main>
+
+
+{% endblock content %}

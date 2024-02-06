@@ -1,0 +1,216 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<!-- Mirrored from new.axilthemes.com/demo/template/etrade/single-product-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 Jan 2023 17:58:47 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    {% block title %}{% endblock title %}
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+
+    <!-- CSS
+    ============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/flaticon/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/sal.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/base.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
+</head>
+
+
+<body class="sticky-header">
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+    <!-- Start Header -->
+    <header class="header axil-header header-style-5">
+        
+        <!-- Start Mainmenu Area  -->
+        <div id="axil-sticky-placeholder"></div>
+        <div class="axil-mainmenu">
+            <div class="container">
+                <div class="header-navbar">
+                    <div class="header-brand">
+                        <a href="/" class="logo logo-dark">
+                            LOGO
+                        </a>
+                    </div>
+                    <div class="header-main-nav">
+                        <!-- Start Mainmanu Nav -->
+                        <nav class="mainmenu-nav">
+                            <div class="mobile-nav-brand">
+                                <a href="/" class="logo">
+                                    LOGO
+                                </a>
+                            </div>
+                            <ul class="mainmenu">
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Category</a>
+                                    <ul class="axil-submenu">
+                                        {% for x in collection%}
+                                                        <li><a href="{% url 'category_products' x.id %}">{{x.title}}</a></li>
+                                                        {%endfor%}
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </nav>
+                        <!-- End Mainmanu Nav -->
+                    </div>
+                    <div class="header-action">
+                        <ul class="action-list">
+                            <li class="axil-search d-xl-block">
+                                <form action="{% url 'search' %}" method="post">
+                                {% csrf_token %}
+                                    <input type="search" class="placeholder product-search-input" style="max-width: 150px!important;" name="search" id="search" value="" maxlength="128" placeholder="search" autocomplete="off" on>
+                                <button type="submit" class="icon wooc-btn-search">
+                                    <i class="flaticon-magnifying-glass"></i>
+                                </button>
+                            </form>
+                            </li>
+                            <li class="wishlist">
+                                <a href="{% url '' %}">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li class="shopping-cart">
+                                <a href="{% url 'cart' %}" class="cart-dropdown-btn">
+                                    <span class="cart-count">{{cartCount}}</span>
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            <li class="my-account">
+                                <a href="javascript:void(0)">
+                                    <i class="flaticon-person"></i>
+                                </a>
+                                <div class="my-account-dropdown">
+                                    <ul>
+                                        {% if user.is_authenticated %}
+                                        <li>
+                                            <a href="{% url 'profile' %}">My Account</a>
+                                            
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'logout' %}" class="btn btn-primary" style="color: #fff!important;">Logout</a>
+                                        </li>
+                                        {% else %}
+                                        <li>
+                                            <a href="sign-in.html" class="btn btn-primary" style="color: #fff!important;">Login</a>
+                                        </li>
+                                        <li>
+                                            <a href="sign-in.html" class="btn btn-primary" style="color: #fff!important;">Join</a>
+                                        </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Mainmenu Area -->
+        <div class="header-top-campaign">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-lg-6 col-md-10">
+                        <div class="header-campaign-activation axil-slick-arrow arrow-both-side header-campaign-arrow">
+                            <div class="slick-slide">
+                                <div class="campaign-content">
+                                    <p>Buy Now</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+
+    <!-- Start Footer Area  -->
+    <footer class="axil-footer-area footer-style-2">
+        <div class="copyright-area copyright-default separator-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-4">
+                        <div class="social-share">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-12">
+                        <div class="copyright-left d-flex flex-wrap justify-content-center">
+                            <ul class="quick-link">
+                                <li>© 2022. All rights reserved by <a href="/">Ecommerce</a>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-12">
+                        <div class="copyright-right d-flex flex-wrap justify-content-xl-end justify-content-center align-items-center">
+                            <span class="card-text">Accept For</span>
+                            <ul class="payment-icons-bottom quick-link">
+                                <li><img src="/static/assets/images/icons/cart/cart-1.png" alt="paypal cart"></li>
+                                <li><img src="/static/assets/images/icons/cart/cart-2.png" alt="paypal cart"></li>
+                                <li><img src="/static/assets/images/icons/cart/cart-5.png" alt="paypal cart"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright Area  -->
+    </footer>
+    
+       <!-- JS
+============================================ -->
+    <!-- Modernizer JS --><script src="{% static 'assets/js/vendor/modernizr.min.js' %}"></script>
+    <!-- jQuery JS -->
+    <script src="{% static 'assets/js/vendor/jquery.js' %}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'assets/js/vendor/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/slick.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/js.cookie.js' %}"></script>
+    <!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+    <script src="{% static 'assets/js/vendor/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/sal.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/counterup.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/waypoints.min.js' %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+
+<!-- Mirrored from new.axilthemes.com/demo/template/etrade/single-product-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 Jan 2023 17:58:55 GMT -->
+</html>
+
+

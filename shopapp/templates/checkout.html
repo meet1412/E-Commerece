@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Ecommerce || Checkout</title>
+{% endblock title %}
+
+{% block content %}
+
+    <main class="main-wrapper">
+
+        <!-- Start Checkout Area  -->
+        <div class="axil-checkout-area axil-section-gap">
+            <div class="container">
+                <form action="#">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            
+                            <div class="axil-checkout-billing">
+                                <h4 class="title mb--40">Billing details</h4>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" id="first-name" value="{{add.customer}}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Street Address <span>*</span></label>
+                                    <input type="text" id="address1" class="mb--15" value="{{add.street}}" readonly>
+                                    <input type="text" id="address2" value="{{add.city}}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="axil-order-summery order-checkout-summery">
+                                <h5 class="title mb--20">Your Order</h5>
+                                <div class="summery-table-wrap">
+                                    <table class="table summery-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Subtotal</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {%for x in items %}
+                                            <tr class="order-product">
+                                                <td>{{x.product.title}}<span class="quantity"> x{{x.quantity}}</span></td>
+                                                <td>{{currency}}{{x.get_total_price}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                            <tr class="order-subtotal">
+                                                <td>Subtotal</td>
+                                                <td>{{currency}}{{subTotal}}</td>
+                                            </tr>
+                                            <tr class="order-shipping">
+                                                <td colspan="2">
+                                                    <div class="input-group">
+                                                        <input type="radio" id="radio1" name="shipping" checked>
+                                                        <label for="radio1">Free Shippping</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="order-total">
+                                                <td>Total</td>
+                                                <td class="order-total-amount">$323.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="order-payment-method">
+
+                                    <div class="single-payment">
+                                        <div class="input-group">
+                                            <input type="radio" id="radio5" name="payment">
+                                            <label for="radio5">Cash on delivery</label>
+                                        </div>
+                                        <p>Pay with cash upon delivery.</p>
+                                    </div>
+                                    <div class="single-payment">
+                                        <div class="input-group justify-content-between align-items-center">
+                                            <input type="radio" id="radio6" name="payment" checked readonly>
+                                            <label for="radio6">Paypal</label>
+                                            <img src="{% static 'assets/images/others/payment.png' %}" alt="Paypal payment">
+                                        </div>
+                                        <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                                    </div>
+                                </div>
+                                <a href="{% url 'placeOrder' %}" class="axil-btn btn-bg-primary checkout-btn">Place Order</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- End Checkout Area  -->
+
+    </main>
+
+{% endblock content %}

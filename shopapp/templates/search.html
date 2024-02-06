@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Ecommerce || Search result</title>
+{% endblock title %}
+
+{% block content %}
+    <main class="main-wrapper">
+        <!-- Start Breadcrumb Area  -->
+        <div class="axil-breadcrumb-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="inner">
+                            <ul class="axil-breadcrumb">
+                                <li class="axil-breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="separator"></li>
+                                <li class="axil-breadcrumb-item active" aria-current="page">Search result</li>
+                            </ul>
+                            <h1 class="title">You searched for {{search_term}}</h1>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area  -->
+        <!-- Start Shop Area  -->
+        <div class="axil-shop-area axil-section-gap bg-color-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="axil-shop-top">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    
+                                </div>
+                                <div class="col-lg-3">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row--15">
+                    {% if products %}
+                    {%for x in products %}
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="axil-product product-style-one has-color-pick mt--40">
+                            <div class="thumbnail">
+                                <a href="{%url 'product' x.id%}">
+                                    <img src="{{x.img.url}}" alt="Product Images">
+                                </a>
+                                {% if x.offer %}
+                                <div class="label-block label-right">
+                                    <div class="product-badget">{{x.offer}}% OFF</div>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <h5 class="title"><a href="{%url 'product' x.id%}">{{x.title}}</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price current-price">{{currency}}{{x.unit_price}}</span>
+                                        {% if x.oldPrice %}
+                                        <span class="price old-price">{{currency}}{{x.oldPrice}}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div><h4>{{search_term}} not found</h4></div>
+                    {% endif %}
+                    <!-- End Single Product  -->
+                    
+                    
+                </div>
+            </div>
+            <!-- End .container -->
+        </div>
+    </main>
+{% endblock content %}
+
+
+    <!-- Header Search Modal End -->
+
+
+
+ 
