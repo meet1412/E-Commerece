@@ -11,7 +11,6 @@ from django.views.decorators.cache import never_cache
 from decimal import *
 # # Create your views here.
 
-
 @login_required()
 def product_list(request):
     customer=Customer.objects.filter(user=request.user).exists()    

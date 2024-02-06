@@ -19,4 +19,3 @@ def CurrencyContext(request):
 #             return {"cart_count":cart_count}
 #         else:
 #             return{"cart_count":""}
-    

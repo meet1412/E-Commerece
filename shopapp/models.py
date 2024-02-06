@@ -2,9 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 import os
-# from django.db.models.deletion import SET_NULL
-# from django.db.models.fields import CharField, reverse_related
-# Create your models here.
+
 class Collection(models.Model):
     title=models.CharField(max_length=255)
     featured_product=models.ForeignKey('Product', on_delete=models.SET_NULL , null=True ,blank=True, related_name='+')
