@@ -1,3 +1,12 @@
+![Screenshot 2024-02-27 135206](https://github.com/meet1412/E-Commerece/assets/146736167/0a70caba-bbfb-4501-9ad0-fce45a478e65)
+![Screenshot 2024-02-27 135220](https://github.com/meet1412/E-Commerece/assets/146736167/c6b9ba28-1489-42d9-849c-cc2b4d5d0389)
+![Screenshot 2024-02-27 135256](https://github.com/meet1412/E-Commerece/assets/146736167/f5f61806-0f76-4fc8-affc-2b4fed9536f4)
+![Screenshot 2024-02-27 135314](https://github.com/meet1412/E-Commerece/assets/146736167/3d541210-c09f-4200-9e43-7eb531f6797f)
+![Screenshot 2024-02-27 135423](https://github.com/meet1412/E-Commerece/assets/146736167/394f54f2-7b01-4dce-be1b-03b3793697a9)
+![Screenshot 2024-02-27 135455](https://github.com/meet1412/E-Commerece/assets/146736167/77528cb8-1b49-4a3b-a656-45f11c5c03a7)
+![Screenshot 2024-02-27 135506](https://github.com/meet1412/E-Commerece/assets/146736167/ab76a3b9-1572-4e14-93d3-6ac96df808f7)
+![Screenshot 2024-02-27 135535](https://github.com/meet1412/E-Commerece/assets/146736167/c3084f0b-d6f8-4429-ae0b-880bc7a847e5)
+
 Built an E-commerce based stage to achieve the goal of better online shopping by the folks. The key aim of our site is to provide innovative technology, security, and efficiency. We also peruse various kinds of the products such as: products related innovative technology, books, food, and trendy outfits based on the individual choice. It allows several payment methods for their purchase such as G-pay, visa, phone pay, pay pal and cash on delivery. It provides the feature of the customized List of things to wish for, client service, and request history to upgrade the shopping experience. In a hectic era of the life everyone has less time to go in person shopping, so it's the best platform for those who are always in the rush. Not only public can check each detail of the product like product appearance, statistics but also can read commons review which is posted over there. These reviews will make them positive against the product. Furthermore, because of searches what individuals will make, the recommendation engine suggests other product in which they may take interest.
 If we are talking about the payment, all the information secures in the database which is related to people’s credits and debits. At last, people can place order, track, check the delivery status and receives it.
 The Cloud platform that we are using is AWS platform.
